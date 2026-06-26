@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lockrr — Earn Your Screen Time</title>
+    <meta
+      name="description"
+      content="Lockrr blocks distracting apps and makes you earn screen time with camera-counted push-ups. Peak productivity requires peak health." />
+    <meta property="og:title" content="Lockrr — Earn Your Screen Time" />
+    <meta
+      property="og:description"
+      content="Block distracting apps. Exercise to unlock them. Reach your potential." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #07090c;
+        --surface: #151c24;
+        --border: #26303b;
+        --text: #eef3f7;
+        --text-secondary: #8b97a5;
+        --text-muted: #5c6675;
+        --accent: #ffffff;
+        --maxw: 640px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        /* Subtle vignette + glow behind the hero, like the reference. */
+        background-image:
+          radial-gradient(60% 50% at 50% 8%, rgba(255, 255, 255, 0.06), transparent 70%),
+          radial-gradient(80% 60% at 50% 78%, rgba(255, 255, 255, 0.05), transparent 70%);
+        background-repeat: no-repeat;
+      }
+
+      .page {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Brand mark */
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 44px;
+      }
+      .brand img {
+        width: 30px;
+        height: 30px;
+      }
+      .brand span {
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+      }
+
+      /* Hero copy */
+      h1 {
+        font-size: clamp(2rem, 7vw, 2.9rem);
+        line-height: 1.12;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin: 0 0 18px;
+      }
+      h1 .hl {
+        color: var(--accent);
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      }
+      .subtitle {
+        max-width: 30ch;
+        margin: 0 auto;
+        color: var(--text-secondary);
+        font-size: clamp(1rem, 2.4vw, 1.15rem);
+        line-height: 1.55;
+        font-weight: 500;
+      }
+      .subtitle .hl {
+        color: var(--text);
+      }
+
+      /* Download button */
+      .download {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+        padding: 15px 30px;
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 999px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .download:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.6);
+      }
+      .download svg {
+        width: 18px;
+        height: 18px;
+        fill: #000;
+        margin-top: -2px;
+      }
+
+      .legal {
+        margin-top: 16px;
+        font-size: 13px;
+      }
+      .legal a {
+        color: var(--text-muted);
+        text-decoration: none;
+        margin: 0 8px;
+      }
+      .legal a:hover {
+        color: var(--text-secondary);
+      }
+
+      /* Phone mockup */
+      .phone-wrap {
+        position: relative;
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+      }
+      .phone-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -8% -10% 4%;
+        background: radial-gradient(50% 45% at 50% 45%, rgba(255, 255, 255, 0.08), transparent 70%);
+        z-index: 0;
+      }
+      .phone {
+        position: relative;
+        z-index: 1;
+        width: clamp(250px, 74vw, 300px);
+        aspect-ratio: 9 / 19.5;
+        background: #000;
+        border-radius: 46px;
+        padding: 11px;
+        box-shadow:
+          0 0 0 2px #20262e,
+          0 50px 90px rgba(0, 0, 0, 0.65);
+      }
+      .phone-screen {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 36px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      .phone-screen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .island {
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 96px;
+        height: 28px;
+        background: #000;
+        border-radius: 16px;
+        z-index: 2;
+      }
+
+      footer {
+        margin-top: 56px;
+        color: var(--text-muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        .page {
+          padding: 28px 20px 48px;
+        }
+        .brand {
+          margin-bottom: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="brand">
+        <img src="lockrr.png" alt="" />
+        <span>LOCKRR</span>
+      </div>
+
+      <h1>
+        Get <span class="hl">Lockrr</span>:<br />
+        Reach Your Potential
+      </h1>
+      <p class="subtitle">
+        Peak productivity requires peak health, and now is your
+        <span class="hl">time to lock in</span>.
+      </p>
+
+      <!-- Replace href with your App Store link when live. -->
+      <a class="download" href="#">
+        <svg viewBox="0 0 384 512" aria-hidden="true">
+          <path
+            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+        </svg>
+        Download
+      </a>
+
+      <div class="legal">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="island"></div>
+            <img src="pushup.PNG" alt="The Lockrr app counting push-ups to earn screen time" />
+          </div>
+        </div>
+      </div>
+
+      <footer>© 2026 Lockrr</footer>
+    </main>
+  </body>
+</html>
